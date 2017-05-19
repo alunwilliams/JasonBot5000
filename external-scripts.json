@@ -8,5 +8,6 @@
     "hubot-maps",
     "hubot-rules",
     "hubot-shipit",
-    "hubot-out-of-office"
+    "hubot-out-of-office",
+    "hubot-trello"
 ]
