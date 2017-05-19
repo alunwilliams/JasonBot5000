@@ -68,8 +68,8 @@ module.exports = (robot) ->
         list_name = res.match[1]
         res.reply "Looking up the cards for #{list_name}, one sec."
         ensureConfig res.send
-        id = lists[list_name.toLowerCase()].id
-        res.send "I couldn't find a list named: #{list_name}." unless id
-        if id
-            trello.get "/1/lists/#{id}", {cards: "open"}, (err, data) ->
+        list = lists[list_name.toLowerCase()]
+        res.send "I couldn't find a list named: #{list_name}." unless list
+        if list
+            trello.get "/1/lists/#{list.id}", {cards: "open"}, (err, data) ->
                 summariseList(res, err, data)
