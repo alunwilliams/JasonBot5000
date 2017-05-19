@@ -4,5 +4,6 @@
     "hubot-google-translate",
     "hubot-maps",
     "hubot-out-of-office",
-    "hubot-trello"
+    "hubot-trello",
+    "hubot-gif"
 ]
