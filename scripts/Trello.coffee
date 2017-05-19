@@ -11,6 +11,7 @@
 #
 # Commands:
 #   hubot trello summary - Get a basic summary of your trello board
+#   hubot trello summarise "<listname>" - Get a basic summary of the list with name <listname>
 
 board = {}
 lists = {}
