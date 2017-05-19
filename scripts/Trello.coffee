@@ -1,18 +1,17 @@
 module.exports = (robot) ->
 
     getJSON (url, callback) ->
-        xhr = new XMLHttpRequest();
-        xhr.open("GET", url, true);
-        xhr.responseType = "json";
-        xhr.onload = function() {
-        status = xhr.status;
-        if (status == 200) {
-            callback(null, xhr.response);
-        } else {
-            callback(status);
-        }
-        };
-        xhr.send();
+        xhr = new XMLHttpRequest()
+        xhr.open("GET", url, true)
+        xhr.responseType = "json"
+        xhr.onload = () ->
+            status = xhr.status
+            if (status == 200)
+                callback(null, xhr.response)
+            else
+                callback(status)
+        
+        xhr.send()
     };
 
     robot.respond /Trello Summary/i, (res) ->
@@ -20,7 +19,7 @@ module.exports = (robot) ->
         key = "ed2bca93fc96baf1026788d7d661b83d"
         token = "964af7bf50973d664c142e064c2d458a38a22a47dad4bceda9ded804be8e178b"
         completeUri = "https://api.trello.com/1/#{url}?key=#{key}&token=#{token}"
-        responseObj = getJSON(completeUrl);
+        responseObj = getJSON(completeUrl)
     
     respond (err, data)->
         if err?
