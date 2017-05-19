@@ -212,3 +212,30 @@ Add the subdomain hubot should connect to. If you web URL looks like
 
 You may want to get comfortable with `heroku logs` and `heroku restart` if
 you're having issues.
+
+## Sample Interaction
+
+```
+user1>> hubot I am out of office
+hubot>> @user1 is out of office
+
+user1>> hubot I am back
+hubot>> welcome back!
+
+user1>> hubot I am on holiday
+hubot>> @user1 on holiday
+
+user1>> hubot I am working from home
+hubot>> @user1 working from home
+
+user1>> hubot where is everybody?
+hubot>> 
+John Smith is on holiday
+
+user1>> hubot I am sick
+hubot>> @user1 get well soon!
+
+user1>> hubot where is @wally
+hubot>> @user1 Wally Davies should be in...
+```
+
