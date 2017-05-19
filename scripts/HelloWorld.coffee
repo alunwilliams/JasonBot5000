@@ -5,3 +5,7 @@ module.exports = (robot) ->
 
     robot.respond /Hello/i, (res) ->
         res.reply "Hello World!"
+    
+    robot.respond /Say (.*)/i, (res) ->
+        whatToSay = res.match[1]
+        res.reply "Ok then. #{whatToSay}"
