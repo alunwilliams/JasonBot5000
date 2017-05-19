@@ -1,10 +1,10 @@
 # Description
-#   Some Hello World type scripts
+#   Some Hello World scripts
 #
 # Configuration:
 #
 # Commands:
-#   hubot Hello - Say Hello to hubot
+#   hubot Hello - Say Hello to JasonBot
 #   hubot Say <phrase> - Make JasonBot say something. Please watch your language
 #
 # Notes:
