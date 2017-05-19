@@ -1,19 +1,26 @@
 # DOCKER-VERSION        1.3.2
 
-FROM nhoag/hubot
+FROM node:6.9.1
 MAINTAINER Nathaniel Hoag, info@nathanielhoag.com
 
 ENV HUBOT_PORT 8080
 ENV HUBOT_ADAPTER slack
-ENV HUBOT_NAME Jason
-ENV HUBOT_GOOGLE_API_KEY xxxxxxxxxxxxxxxxxxxxxx
-ENV HUBOT_SLACK_TOKEN xxxxxxxxxxxxxxxxxxxxx
+ENV HUBOT_NAME jasonbot7000
+ENV HUBOT_SLACK_TOKEN xoxb-185021453121-2hEQWuoFHAJy1OvEK6TtTFRV
 ENV HUBOT_SLACK_TEAM lenders-general
 ENV HUBOT_SLACK_BOTNAME ${HUBOT_NAME}
 ENV PORT ${HUBOT_PORT}
+ENV HUBOT_TRELLO_KEY ed2bca93fc96baf1026788d7d661b83d
+ENV HUBOT_TRELLO_TOKEN 964af7bf50973d664c142e064c2d458a38a22a47dad4bceda9ded804be8e178b
+ENV HUBOT_TRELLO_BOARD kkMICugu
+
+
+
+WORKDIR /opt/bot
+ADD package.json /opt/bot
+RUN npm install
+ADD . /opt/bot
 
 EXPOSE ${HUBOT_PORT}
 
-WORKDIR /opt/bot
-
-CMD bin/hubot
+CMD /opt/bot/bin/hubot
