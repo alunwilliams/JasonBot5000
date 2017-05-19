@@ -1,16 +1,12 @@
-module.exports = (robot) ->
+hubotTrello = require 'hubot-trello'
 
-    robot.respond /Trello Summary/i, (res) ->
-        url = "boards/kkMICugu/cards"
-        key = "ed2bca93fc96baf1026788d7d661b83d"
-        token = "964af7bf50973d664c142e064c2d458a38a22a47dad4bceda9ded804be8e178b"
-        completeUri = "https://api.trello.com/1/#{url}?key=#{key}&token=#{token}"
-        xhr = new XMLHttpRequest()
-        xhr.open("GET", completeUri, false)
-        xhr.responseType = "json"
-        xhr.send()
-        xhr.status
-        if (status == 200)
-            res.reply "No of Cards = #{Object.Keys(xhr.response)}"
-        else
-            res.reply "Something went wrong :(."
+module.exports = (robot) ->
+  
+    robot.respond /Trello Summary (.*)/i, (res) ->
+        res.reply "Looking up the cards, one sec."
+        ensureConfig msg.send
+        for list, i in lists
+            id = list.id
+            trello.get "/1/lists/#{id}", {cards: "open"}, (err, data) ->
+                msg.reply "There was an error showing the list." if err
+                res.reply "List: #{data.name} Total Cards: #{data.cards.length}" unless err and data.cards.length == 0
