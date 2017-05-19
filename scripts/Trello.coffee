@@ -10,9 +10,7 @@ module.exports = (robot) ->
                 callback(null, xhr.response)
             else
                 callback(status)
-        
         xhr.send()
-    };
 
     robot.respond /Trello Summary/i, (res) ->
         url = "boards/kkMICugu/cards"
