@@ -1,6 +1,6 @@
 module.exports = (robot) ->
 
-    getJSON (url, callback) ->
+    getJSON = (url, callback) ->
         xhr = new XMLHttpRequest()
         xhr.open("GET", url, true)
         xhr.responseType = "json"
